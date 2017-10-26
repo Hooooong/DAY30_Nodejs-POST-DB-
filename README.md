@@ -38,21 +38,23 @@ ____________________________________________________
   });
 
   req.on('end', function(){
-    // 1. Query 형태로 보내는 경우
+    // 1. 클라이언트에서 Query 형태로 보내는 경우
     // post_data = "id=root&&pw=qwer1234";
-    sign = queryString.parse(post_data);
+    var query = queryString.parse(post_data);
+    // queryString.parse 를 통해 Object 로 변환
 
-    // 2. Json 형태로 보내는 경우
-    // Object 와 JSON 데이터는 1:1 매핑이 되기 떄문에
-    // Object 를 정의해놓고, JSON.stringify(String) 를 통해
-    // JSON 으로 변환한 후 Object 로 변환한다.
-    var sign = {
-      id :"",
-      pw :""
-    }
-    sign = JSON.stringify(post_data);
-    req.wirte(sing);
-    req.end();
+    // var query = {
+    //   id : "root",
+    //   pw : "qwer1234"
+    // }
+
+    // 2. 클라이언트에서 Json 형태로 보내는 경우
+    // JSON.parse 를 통해 Object 로 변환
+    var query = JSON.parse(postData);
+    // var query = {
+    //   id : "root",
+    //   pw : "qwer1234"
+    // }
   });
   ```
 
