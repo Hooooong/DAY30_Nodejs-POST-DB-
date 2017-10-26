@@ -80,18 +80,28 @@ ____________________________________________________
       // DB 연결 성공
       // 검색의 Query 구조는 JSON 구조로 보내줘야 한다.
       // JSON Object : Javascript Object = 1:1 구조
-      // 그러므로 Query 에 JSON 데이터를 직접 넣어주면 된다.
-      var cursor = db.collections(테이블명).find(데이터);
+      // 받은 데이터를 Object 로 변환 후
+      var query = JSON.parse(postData);
+      // 검색의 Query 문에 바로 넣어주면 된다.
+      var cursor = db.collections(테이블명).find(query);
 
       // 데이터 셋 처리 방법
       cursor.toArray(function(error, dataSet){
         if(dataSet.length > 0){
           // 성공적으로 데이터를 받았을 경우
           // 보낼 데이터를 Object 로 가공
-          보낼 데이터;
+          var data = {
+            // object 형식 설정
+          }
+
+          data 에 보낼 데이터 가공;
         }
 
-        req.write(JSON.stringify(보낼 데이터));
+        // 보낼 데이터(data)를 JSON String으로 변경해서 보내야 한다.
+        // result 는 String 구조
+        var result = JSON.stringify(data);
+
+        req.write(result);
         req.end();
       });
     }
