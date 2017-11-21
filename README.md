@@ -18,6 +18,44 @@ ____________________________________________________
 
   - MongoDB 는 NoSQL 이다. NoSQL 이란 전통적인 관계형 데이터베이스 보다 덜 제한적인 일관성 모델을 이용하는 데이터의 저장 및 검색을 위한 매커니즘을 제공한다.
 
+- MongoDB 실행
+
+  1. MongoDB 실행
+
+      ```
+      <!-- MongoDB\datas 를 dbpath 로 설정해서 실행 -->
+      mongod --dbpath "C:\Program Files\MongoDB\datas"
+      ```
+
+  2. MongoDB Terminal 실행
+
+      ```
+      <!-- MongoDB Terminal 실행 -->
+      mongo
+
+      <!-- MongoDB 쿼리 -->
+      <!-- database 리스트 보기 -->
+      show databases
+
+      <!-- database 사용하기 -->
+      use 데이터베이스명
+
+      <!-- database에 있는 table 리스트 보기 -->
+      show tables
+
+      <!-- 일반적인 쿼리문 -->
+      db.테이블명.명령어
+
+      <!-- 모든 값 검색 -->
+      db.테이블명.find()
+
+      <!-- 삽입 -->
+      db.테이블명.insert(json 형식);
+
+      <!-- 삭제 -->
+      db.테이블명.remove(json 형식);
+      ```
+
 - 참조 : [MongoDB](https://ko.wikipedia.org/wiki/%EB%AA%BD%EA%B3%A0DB), [NoSQL](https://ko.wikipedia.org/wiki/NoSQL)
 
 ##### __Node.js__
